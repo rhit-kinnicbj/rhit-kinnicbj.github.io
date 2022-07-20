@@ -1,10 +1,50 @@
 function luxrayHandler() {
     let luxray = document.getElementById('luxray');
-
-    startMoving();
+    let food = document.getElementById('food');
+    var movementInterval;
+    document.querySelector(".btn").addEventListener('click', dropFood)
+    
+    startMoving(50,25,movementInterval);
     startJumping();
 
-     function startMoving(currentPos = 50,speed = 25) {
+
+    function dropFood() {
+        if(foodExists()) {
+            return;
+        }
+        clearInterval(movementInterval);
+        food.style.left = `${Math.floor(Math.random()*150)}px`
+        food.style.bottom = '150px';
+        food.style.display = 'block';
+        let foodPos = 150;
+        let dropInterval = setInterval(() => {
+            if(foodPos > 0) {
+                food.style.bottom = `${foodPos}px`
+                foodPos -=2;
+            }
+        },15);
+        eatFood();
+    }
+
+    function eatFood() {
+        let foodPos = parseInt(food.style.left.split('px')[0]);
+        let luxPos = parseInt(luxray.style.left.split('px')[0]);
+        let travelDir = -1;
+        if(foodPos-luxPos > 5) {
+            travelDir = 1;
+            luxray.style.transform = "scaleX(-1)";
+        }else {
+            luxray.style.transform = "scaleX(1)";
+        }
+        let goToFoodInterval = setInterval(() => {
+            while(Math.abs(luxPos- foodPos > 5)) {
+                luxray.style.left = `${luxPos}px`;
+                luxPos += travelDir;
+            }
+        },100)
+    }
+
+    function startMoving(currentPos = 50,speed = 25) {
         let luxDirection = Math.random() > 0.5 ? 'left' : 'right';
         if(luxDirection === 'left'){ 
             luxray.style.transform = "scaleX(1)";
@@ -12,33 +52,38 @@ function luxrayHandler() {
             luxray.style.transform = "scaleX(-1)";
         };
         let luxPos = currentPos;
-        let movementInteval = setInterval(async () => {
-                if(luxPos > 170) {
+        movementInterval = setInterval(async () => {
+                if(luxPos >= 170) {
                     luxDirection = 'left';
                     luxray.style.transform = "scaleX(1)"
-                }else if(luxPos < 10) {
+                }else if(luxPos <= 10) {
                     luxDirection = 'right';
                     luxray.style.transform = "scaleX(-1)";
                 }
                 luxray.style.left = `${luxPos}px`
                 luxPos = luxDirection === 'right' ? luxPos + 2 : luxPos - 2;
+                if(foodExists()) {
+                    return;
+                }
                 if(Math.random()*100 < 2) {
-                    wait(movementInteval);
+                    clearInterval(movementInterval);
+                    wait();
                 }
         
             }, speed)
     }
 
-    function wait(interval) {
+    function wait() {
+        let currentPos = parseInt(luxray.style.left.split('px')[0]);
+        let speeds = [10,25,40];
+        let speed = speeds[Math.floor((Math.random()*speeds.length))]
         if(isJumping()) {
+            startMoving(currentPos,speed,movementInterval);
             return;
         }
-        clearInterval(interval);
+        clearInterval(movementInterval);
         setTimeout(() => {
-            let currentPos = parseInt(luxray.style.left.split('px')[0]);
-            let speeds = [10,25,40];
-            let speed = speeds[Math.floor((Math.random()*speeds.length))]
-            startMoving(currentPos,speed);
+            startMoving(currentPos,speed,movementInterval);
         },2000)
     }
 
@@ -72,6 +117,10 @@ function luxrayHandler() {
 
     function isJumping() {
         return luxray.style.bottom && luxray.style.bottom != '0px'
+    }
+
+    function foodExists() {
+        return food.style.display && food.style.display != 'none';
     }
 }
 
