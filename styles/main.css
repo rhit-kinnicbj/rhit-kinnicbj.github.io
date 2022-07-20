@@ -1,113 +1,116 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #1a1a1a;
+  background-color: #1a1a1a;
 }
 
 .wrapper {
-    position: relative;
+  position: relative;
 }
 
 .sidebar {
-    height: 100%;
-    width: 230px;
-    background-color: #050505;
-    position: fixed;
-    min-height: 600px;
- 
+  height: 100%;
+  width: 230px;
+  background-color: #050505;
+  position: fixed;
+  min-height: 600px;
 }
 
 .nav_header_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30%;
-    width: 100%;
-    flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  flex: 1 1 auto;
 }
 
 .nav_header_container img {
-    width: 150px;
-    height: 150px
+  width: 150px;
+  height: 150px;
 }
 
 .nav_header_container h2 {
-    text-align: center;
-    margin-bottom: 0;
-    color: white;
-    font-size:x-large;
+  text-align: center;
+  margin-bottom: 0;
+  color: white;
+  font-size: x-large;
 }
 .nav_header_container h4 {
-    color:whitesmoke;
-    text-align: center;
-    margin-top: 0;
-    font-size:medium;
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 0;
+  font-size: medium;
 }
 
 .nav_button_container {
-    display: flex;
-    flex-direction: column;
-    height: 50%;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex: 1 1 auto;
 }
 .nav_footer {
-    display:flex;
-    height: 10%;
-    flex: 1 1 auto;
+  display: flex;
+  height: 10%;
+  flex: 1 1 auto;
 }
 
-#food {   
-    position: absolute;
-    display: none;
-    width:10px;
-    height: 10px;
-    background-color: red;
+#food {
+  position: absolute;
+  display: none;
+  width: 10px;
+  height: 10px;
+  background-color: red;
 }
 
 #luxray {
-    position: absolute;
-    bottom: 0px;
-    width: 45px;
-    height: 45px;
-    left: 50px;
-    transform: scaleX(-1);
+  position: absolute;
+  bottom: 0px;
+  width: 45px;
+  height: 45px;
+  left: 50px;
+  transform: scaleX(-1);
 }
 
 #luxray:hover {
-    cursor:pointer
+  cursor: pointer;
+}
+
+#heart {
+  display: none;
+  position: absolute;
+  bottom: 55px;
+  width: 41px;
+  height: 41px;
 }
 
 .sidebar .nav_button {
-    border-width: 1px 0 0 0 ;
-    border-color: white;
-    border-style:solid;
-    color: white;
-    padding: 10px;
-    padding-top:10px;
-    padding-bottom: 10px;
-    text-align: center;
-    width: 230px
+  border-width: 1px 0 0 0;
+  border-color: white;
+  border-style: solid;
+  color: white;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 230px;
 }
 
 .nav_button_container .last {
-    border-bottom-width: 1px;
+  border-bottom-width: 1px;
 }
 
 .nav_button:hover {
-    cursor:pointer;
-    background-color: white;
+  cursor: pointer;
+  background-color: white;
 }
-
-
-
 
 .main {
-    margin-left: 230px
+  margin-left: 230px;
 }
-
