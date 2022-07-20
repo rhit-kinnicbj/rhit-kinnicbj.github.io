@@ -4,7 +4,7 @@ function luxrayHandler() {
     var movementInterval;
     document.querySelector(".btn").addEventListener('click', dropFood)
     
-    startMoving(50,25,movementInterval);
+    startMoving(50,25,'main');
     startJumping();
 
 
@@ -30,21 +30,25 @@ function luxrayHandler() {
         let foodPos = parseInt(food.style.left.split('px')[0]);
         let luxPos = parseInt(luxray.style.left.split('px')[0]);
         let travelDir = -1;
-        if(foodPos-luxPos > 5) {
+        if(foodPos > luxPos) {
             travelDir = 1;
             luxray.style.transform = "scaleX(-1)";
         }else {
             luxray.style.transform = "scaleX(1)";
         }
         let goToFoodInterval = setInterval(() => {
-            while(Math.abs(luxPos- foodPos > 5)) {
-                luxray.style.left = `${luxPos}px`;
-                luxPos += travelDir;
+            if(luxPos === foodPos) {
+                clearInterval(goToFoodInterval);
             }
-        },100)
+            luxray.style.left = `${luxPos}px`;
+            luxPos += travelDir;
+        },25)
     }
 
-    function startMoving(currentPos = 50,speed = 25) {
+    function startMoving(currentPos = 50,speed = 25,call) {
+        if(foodExists()) {
+            return;
+        }
         let luxDirection = Math.random() > 0.5 ? 'left' : 'right';
         if(luxDirection === 'left'){ 
             luxray.style.transform = "scaleX(1)";
@@ -62,9 +66,7 @@ function luxrayHandler() {
                 }
                 luxray.style.left = `${luxPos}px`
                 luxPos = luxDirection === 'right' ? luxPos + 2 : luxPos - 2;
-                if(foodExists()) {
-                    return;
-                }
+     
                 if(Math.random()*100 < 2) {
                     clearInterval(movementInterval);
                     wait();
@@ -78,12 +80,12 @@ function luxrayHandler() {
         let speeds = [10,25,40];
         let speed = speeds[Math.floor((Math.random()*speeds.length))]
         if(isJumping()) {
-            startMoving(currentPos,speed,movementInterval);
+            startMoving(currentPos,speed,'wait1');
             return;
         }
         clearInterval(movementInterval);
         setTimeout(() => {
-            startMoving(currentPos,speed,movementInterval);
+            startMoving(currentPos,speed,'wait2');
         },2000)
     }
 
