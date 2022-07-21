@@ -2,7 +2,7 @@ function luxrayHandler() {
   let luxray = document.getElementById("luxray");
   let food = document.getElementById("food");
   let heart = document.getElementById("heart");
-  let dropBtn = document.getElementById("drop");
+  let dropBtn = document.getElementById("dropBtn");
   let sidebar = document.querySelector('.sidebar')
   dropBtn.addEventListener("click", dropFood);
 
@@ -82,18 +82,22 @@ function luxrayHandler() {
     } else {
       luxray.style.transform = "scaleX(-1)";
     }
-    let luxPos = currentPos;
-    movementInterval = setInterval(async () => {
 
-      if (luxPos >= sidebar.offsetWidth - 80) {
+    movementInterval = setInterval(async () => {
+      
+      if (parsePx(luxray.style.left) >= sidebar.offsetWidth - 80) {
         luxDirection = "left";
         luxray.style.transform = "scaleX(1)";
-      } else if (luxPos <= 10) {
+      } else if (parsePx(luxray.style.left) <= 10) {
         luxDirection = "right";
         luxray.style.transform = "scaleX(-1)";
       }
-      luxray.style.left = `${luxPos}px`;
-      luxPos = luxDirection === "right" ? luxPos + 2 : luxPos - 2;
+
+      let newPos = currentPos;
+      if(luxray.style.left) {
+        newPos = luxDirection === "right" ? (parsePx(luxray.style.left) + 2) : (parsePx(luxray.style.left) - 2);
+      }
+      luxray.style.left = `${newPos}px`;
 
       if (Math.random() * 100 < 2) {
         clearInterval(movementInterval);
@@ -101,6 +105,10 @@ function luxrayHandler() {
         wait();
       }
     }, speed);
+  }
+
+  function parsePx (num) {
+    return parseInt(num.split("px")[0])
   }
 
   function wait() {
@@ -157,13 +165,15 @@ function luxrayHandler() {
 
 function navHandler() {
   let navButton = document.getElementById("enableNav");
+  let luxray = document.getElementById("luxray");
 
   window.onresize = () => {
     if (window.innerWidth > 699) {
       document.querySelector(".sidebar").style.display = "block";
+      luxray.style.left = '50px'
     }else{
       document.querySelector(".sidebar").style.display = "none";
-
+      luxray.style.left = '250px'
     }
   };
 

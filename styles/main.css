@@ -57,8 +57,9 @@ p {
 }
 
 body {
-  background-color: #003554;
+  background-color: #004E7A;
   overflow: hidden;
+  overflow-y:auto
 }
 
 .main {
@@ -138,6 +139,20 @@ body {
 
 .header h2 {
   font-size: 4vmax;
+}
+
+.about {
+  height: 500px;
+  border-width: 0 0 12px 0;
+  border-style: solid;
+  border-color: #030d12;
+}
+
+.skills {
+  height: 500px;
+  border-width: 0 0 12px 0;
+  border-style: solid;
+  border-color: #030d12;
 }
 
 .about p {
