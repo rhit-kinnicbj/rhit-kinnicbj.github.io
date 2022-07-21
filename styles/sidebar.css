@@ -21,7 +21,7 @@
 }
 
 .sidebar {
-  font-family: Alagard;
+  /* font-family: Alagard; */
 }
 
 .nav_header_container {
@@ -63,9 +63,9 @@
 }
 .nav_footer {
   height: 15%;
-  border-width: 1px 0 0 0;
+  /* border-width: 1px 0 0 0;
   border-color: white;
-  border-style: solid;
+  border-style: solid; */
   padding-top: 5px;
   justify-content: center;
   align-items: center;
@@ -90,7 +90,21 @@
 @media screen and (max-width: 699px) {
   .sidebar {
     width: 100%;
+    display:none;
   }
+}
+
+.sidebar .btn {
+  padding: 1px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #006494;
+}
+
+.btn .span {
+  align-self: cemt;
 }
 
 #food {
@@ -98,7 +112,10 @@
   display: none;
   width: 10px;
   height: 10px;
-  background-color: red;
+  background-color:violet;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 1px;
 }
 
 #luxray {
@@ -138,5 +155,7 @@
 
 .nav_button:hover {
   cursor: pointer;
-  background-color: #006494;
+  background: linear-gradient(-45deg,#006494,#db17f9);
+  animation: gradient 2s ease infinite;
+  background-size: 400% 400%;
 }
