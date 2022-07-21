@@ -2,7 +2,9 @@ function luxrayHandler() {
   let luxray = document.getElementById("luxray");
   let food = document.getElementById("food");
   let heart = document.getElementById("heart");
-  document.querySelector(".btn").addEventListener("click", dropFood);
+  let dropBtn = document.getElementById("drop");
+  dropBtn.addEventListener("click", dropFood);
+
   let movementInterval;
   let jumpInterval;
 
@@ -13,12 +15,18 @@ function luxrayHandler() {
     if (foodExists()) {
       return;
     }
+
     clearInterval(movementInterval);
     clearInterval(jumpInterval);
+
+    let foodPos =
+      window.innerHeight -
+      dropBtn.getBoundingClientRect().y -
+      dropBtn.offsetHeight;
+    food.style.bottom = `${foodPos}px`;
     food.style.left = `${Math.random() * (125 - 40) + 40}px`;
-    food.style.bottom = "150px";
     food.style.display = "block";
-    let foodPos = 150;
+    console.log();
     let dropInterval = setInterval(() => {
       if (foodPos > 0) {
         food.style.bottom = `${foodPos}px`;
@@ -41,16 +49,7 @@ function luxrayHandler() {
     } else {
       luxray.style.transform = "scaleX(1)";
     }
-    console.log(
-      "foodPos",
-      foodPos,
-      "desired",
-      desiredLuxPos,
-      "initial",
-      luxPos
-    );
-    let goToFoodInterval = setInterval(() => {
-      console.log(luxPos);
+    goToFoodInterval = setInterval(() => {
       if (luxPos === desiredLuxPos) {
         clearInterval(goToFoodInterval);
         heart.style.left = `${luxPos + (desiredLuxPos > luxPos ? 23 : 0)}px`;
@@ -150,8 +149,27 @@ function luxrayHandler() {
   }
 }
 
+function navHandler() {
+  let navButton = document.getElementById("enableNav");
+
+  window.onresize = () => {
+    if (window.innerWidth > 699) {
+      document.querySelector(".sidebar").style.display = "block";
+    }
+  };
+
+  navButton.addEventListener("click", () => {
+    if (document.querySelector(".sidebar").style.display === "none") {
+      document.querySelector(".sidebar").style.display = "block";
+    } else {
+      document.querySelector(".sidebar").style.display = "none";
+    }
+  });
+}
+
 function main() {
   luxrayHandler();
+  navHandler();
 }
 
 main();

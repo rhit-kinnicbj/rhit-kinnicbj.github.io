@@ -13,40 +13,51 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/sidebar.css" />
 
     <title>Brandon Kinnick</title>
   </head>
 
   <body>
     <div class="wrapper">
+      <div id="enableNav" class="btn btn-primary">nav</div>
       <nav class="sidebar">
         <div class="nav_header_container">
-          <img src="#" />
+          <img />
           <h2>Brandon Kinnick</h2>
           <h4>Subtitle</h4>
         </div>
         <div class="nav_button_container">
           <div class="nav_button">Home</div>
+          <div class="nav_button">About</div>
           <div class="nav_button">Skills</div>
           <div class="nav_button">Work Experience</div>
           <div class="nav_button">Education</div>
-          <div class="nav_button">About</div>
           <div class="nav_button last">Contact</div>
-          <div class="btn btn-primary">Drop</div>
         </div>
-        <div class="nav_footer"></div>
-        <img id="heart" src="./images/heart.png" />
-        <div id="food"></div>
-        <img id="luxray" src="./images/luxray.gif" />
+        <div class="nav_footer">
+          <div id="drop" class="btn btn-primary">Drop</div>
+        </div>
+
+        <img class="animate_obj" id="heart" src="./images/heart.png" />
+        <div class="animate_obj" id="food"></div>
+        <img class="animate_obj" id="luxray" src="./images/luxray.gif" />
       </nav>
       <div class="main">
-        <a
-          class="btn btn-primary"
-          href="../styles/main.css"
-          download="main.css"
-        >
-          Download
-        </a>
+        <div class="header">
+          <h1>Hello,&nbsp;&nbsp;</h1>
+          <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm Brandon.</h2>
+        </div>
+        <div class="about">
+          <p>
+            I'm a computer science and software engineering student at
+            Rose-Hulman Institute of Technology.
+          </p>
+        </div>
+        <div class="skills"></div>
+        <div class="work_experience"></div>
+        <div class="education"></div>
+        <div class="contact"></div>
       </div>
     </div>
     <script src="../scripts/main.js"></script>
