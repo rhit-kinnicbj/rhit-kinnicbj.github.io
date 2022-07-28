@@ -16,7 +16,7 @@
   width: 230px;
   background-color: #030d12;
   position: fixed;
-  min-height: 600px;
+  min-height: 750px;
   z-index: 9;
 }
 
@@ -72,39 +72,7 @@
   text-align: center;
 }
 
-@media screen and (max-height: 699px) {
-  .nav_footer {
-    display: none;
-  }
-  .animate_obj {
-    display: none;
-  }
-  .sidebar .nav_button_container {
-    height: 70%;
-  }
-  .sidebar {
-    padding-top: 30px;
-  }
 
-
-}
-
-@media screen and (max-width: 699px) {
-  .sidebar {
-    width: 100%;
-    height: 100%;
-    overflow-y:auto;
-    display:none;
-    min-height: none;
-  }
-
-  .nav_button, #dropBtn {
-    cursor: pointer;
-    background: linear-gradient(-45deg,#006494,#db17f9);
-    animation: gradient 2s ease infinite;
-    background-size: 400% 400%;
-  }
-}
 
 #dropBtn {
   justify-content: center;
@@ -151,10 +119,9 @@
   height: 41px;
 }
 
-.sidebar .nav_button {
-  border-width: 1px;
-  border-color: white;
-  border-style: solid;
+
+.sidebar .nav_button{
+  border: solid white 2px; 
   color: white;
   padding: 10px;
   padding-top: 10px;
@@ -165,13 +132,71 @@
   margin-bottom: 20px;
 }
 
-
 .nav_button:hover,#dropBtn:hover {
   cursor: pointer;
   background: linear-gradient(-45deg,#006494,#db17f9);
-  animation: gradient 2s ease infinite;
+  animation: gradient_btn 2s ease 1  forwards;
   background-size: 400% 400%;
 }
 
+
+@media screen and (max-height: 830px) and (min-width: 700px) {
+  .nav_footer {
+    display: none;
+  }
+  .animate_obj {
+    display: none;
+  }
+  .sidebar .nav_button_container {
+    height: 60%;
+  }
+
+
+  .sidebar {
+    padding-top: 30px;
+  }
+
+
+  .sidebar .nav_button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+
+}
+
+@media screen and (max-width: 699px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    overflow-y:auto;
+
+    min-height: none;
+  }
+
+  .nav_header_container {
+    display: none
+  }
+
+  .nav_button_container {
+    margin-top: 100px;
+    height: 60%;
+  }
+
+  .nav_footer {
+    height: 5%;
+  }
+
+.sidebar .nav_button {
+  width: 50%
+}
+
+  .nav_button, #dropBtn {
+    cursor: pointer;
+    background: conic-gradient(-45deg,#006494,#db17f9);
+    animation: gradient 2s ease infinite;
+    background-size: 400% 400%;
+  }
+}
 
 

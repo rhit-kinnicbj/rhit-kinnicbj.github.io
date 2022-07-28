@@ -68,7 +68,7 @@ body {
 
 #enableNav {
   display: none;
-  position: absolute;
+  position:fixed;
   top: 10px;
   left: 10px;
   width: 50px;
@@ -126,6 +126,15 @@ body {
 	}
 	100% {
 		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient_btn {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
 	}
 }
 

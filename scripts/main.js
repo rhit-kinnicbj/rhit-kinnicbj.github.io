@@ -75,7 +75,7 @@ function luxrayHandler() {
     if (foodExists() || luxray.dataset.isMoving == "true") {
       return;
     }
-    luxray.dataset.isMoving = true;
+    luxray.dataset.isMoving = true; 
     let luxDirection = Math.random() > 0.5 ? "left" : "right";
     if (luxDirection === "left") {
       luxray.style.transform = "scaleX(1)";
