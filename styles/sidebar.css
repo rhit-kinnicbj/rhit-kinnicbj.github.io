@@ -103,7 +103,7 @@
 }
 
 #luxray {
-  position: absolute;
+  position:absolute;
   bottom: 0px;
   width: 45px;
   height: 45px;
@@ -175,20 +175,23 @@
   }
 
   .nav_header_container {
-    display: none
+    margin-top: 4rem;
   }
 
   .nav_button_container {
-    margin-top: 100px;
+
     height: 60%;
+    flex-wrap: wrap;
   }
 
   .nav_footer {
-    height: 5%;
+    display:none
   }
 
 .sidebar .nav_button {
-  width: 50%
+  width: 45%;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
   .nav_button, #dropBtn {
