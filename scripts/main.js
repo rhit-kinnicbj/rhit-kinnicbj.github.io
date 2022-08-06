@@ -184,6 +184,35 @@ function navHandler() {
       document.querySelector(".sidebar").style.display = "none";
     }
   });
+
+  function scrollTo (div) {
+    let y = div.getBoundingClientRect().top + window.scrollY;
+    window.scroll(0,y);
+  }
+
+  let sidebarButtons = document.querySelectorAll(".nav_button");
+  for(let btn of sidebarButtons) {
+    let destination = document.querySelector(`.${btn.innerHTML.toLowerCase()}`);
+    if(btn.innerHTML === 'Home') {
+      destination = document.querySelector('body');
+    }
+    btn.onclick = () => {
+      scrollTo(destination);
+    }
+  }
+
+  let resume = document.querySelector(".resume");
+  resume.onclick = () => {
+    var link = document.createElement("a");
+    link.setAttribute('download', "Resume_BrandonKinnick.docx");
+    link.href = "Resume_BrandonKinnick.docx";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
+
+
 }
 
 function main() {
