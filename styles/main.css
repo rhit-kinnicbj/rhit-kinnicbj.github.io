@@ -104,6 +104,12 @@ body {
 
 }
 
+#logobackdrop {
+  background: linear-gradient(-45deg, #00A6FB, #db17f9);
+  animation: gradient 3s ease infinite;
+  background-size: 400% 400%;
+}
+
 @media screen and (max-width: 1100px) {
   .experience div {
     flex-direction: column !important;
