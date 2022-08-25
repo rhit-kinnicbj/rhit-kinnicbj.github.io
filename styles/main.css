@@ -60,7 +60,7 @@ p {
 body {
   background-color: #004E7A;
   overflow: hidden;
-  overflow-y: auto
+  overflow-y: auto;
 }
 
 .main {
@@ -91,18 +91,6 @@ body {
   cursor: pointer
 }
 
-@media screen and (max-width: 699px) {
-  .main {
-    margin: 0px;
-  }
-
-  #enableNav {
-    display: block;
-    z-index: 10;
-  }
-
-
-}
 
 #logobackdrop {
   background: linear-gradient(-45deg, #00A6FB, #db17f9);
@@ -178,6 +166,10 @@ a {
   border-width: 0 0 12px 0;
   border-style: solid;
   border-color: #030d12;
+}
+
+.section.contact {
+  border-style: none;
 }
 
 
@@ -308,5 +300,47 @@ input {
   border: 1px solid white;
 }
 
+
+
+@media screen and (max-width: 699px) {
+  .main {
+    margin: 0px;
+  }
+
+  #enableNav {
+    display: block;
+    z-index: 10;
+  }
+
+  .skillbox {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    min-width: 150px;
+  }
+
+  .skillbox h1 {
+    font-size: 1rem;
+  }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .experience #imgContainer {
+    margin-right: 0;
+  }
+
+
+
+
+  .resume {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+
+}
 
 

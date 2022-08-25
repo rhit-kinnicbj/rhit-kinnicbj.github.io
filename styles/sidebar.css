@@ -17,11 +17,7 @@
   background-color: #030d12;
   position: fixed;
   min-height: 750px;
-  z-index: 9;
-}
-
-.sidebar {
-  /* font-family: Alagard; */
+  z-index: 9; 
 }
 
 .nav_header_container {
@@ -170,8 +166,17 @@
     width: 100%;
     height: 100%;
     overflow-y:auto;
-
+    display:none;
     min-height: none;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #logobackdrop img{
+    object-fit: cover
   }
 
   .nav_header_container {

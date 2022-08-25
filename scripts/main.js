@@ -3,7 +3,7 @@ function luxrayHandler() {
   let food = document.getElementById("food");
   let heart = document.getElementById("heart");
   let dropBtn = document.getElementById("dropBtn");
-  let sidebar = document.querySelector('.sidebar')
+  let sidebar = document.querySelector(".sidebar");
   dropBtn.addEventListener("click", dropFood);
 
   let movementInterval;
@@ -26,7 +26,9 @@ function luxrayHandler() {
       dropBtn.getBoundingClientRect().y -
       dropBtn.offsetHeight;
     food.style.bottom = `${foodPos}px`;
-    food.style.left = `${Math.random() * (sidebar.offsetWidth-110 - 40) + 40}px`;
+    food.style.left = `${
+      Math.random() * (sidebar.offsetWidth - 110 - 40) + 40
+    }px`;
     food.style.display = "block";
     console.log();
     let dropInterval = setInterval(() => {
@@ -75,7 +77,7 @@ function luxrayHandler() {
     if (foodExists() || luxray.dataset.isMoving == "true") {
       return;
     }
-    luxray.dataset.isMoving = true; 
+    luxray.dataset.isMoving = true;
     let luxDirection = Math.random() > 0.5 ? "left" : "right";
     if (luxDirection === "left") {
       luxray.style.transform = "scaleX(1)";
@@ -84,7 +86,6 @@ function luxrayHandler() {
     }
 
     movementInterval = setInterval(async () => {
-      
       if (parsePx(luxray.style.left) >= sidebar.offsetWidth - 80) {
         luxDirection = "left";
         luxray.style.transform = "scaleX(1)";
@@ -94,8 +95,11 @@ function luxrayHandler() {
       }
 
       let newPos = currentPos;
-      if(luxray.style.left) {
-        newPos = luxDirection === "right" ? (parsePx(luxray.style.left) + 2) : (parsePx(luxray.style.left) - 2);
+      if (luxray.style.left) {
+        newPos =
+          luxDirection === "right"
+            ? parsePx(luxray.style.left) + 2
+            : parsePx(luxray.style.left) - 2;
       }
       luxray.style.left = `${newPos}px`;
 
@@ -107,8 +111,8 @@ function luxrayHandler() {
     }, speed);
   }
 
-  function parsePx (num) {
-    return parseInt(num.split("px")[0])
+  function parsePx(num) {
+    return parseInt(num.split("px")[0]);
   }
 
   function wait() {
@@ -119,7 +123,7 @@ function luxrayHandler() {
       startMoving(currentPos, speed);
       return;
     }
-    clearInterval(movementInterval); 
+    clearInterval(movementInterval);
     luxray.dataset.isMoving = false;
     setTimeout(() => {
       startMoving(currentPos, speed);
@@ -138,7 +142,7 @@ function luxrayHandler() {
     if (luxray.dataset.isJumping == "true") {
       return;
     }
-    luxray.dataset.isJumping = "true"
+    luxray.dataset.isJumping = "true";
     let height = 0;
     let dir = "up";
     let jumpInterval = setInterval(() => {
@@ -146,17 +150,15 @@ function luxrayHandler() {
         dir = "down";
       } else if (height == 0 && dir === "down") {
         clearInterval(jumpInterval);
-        luxray.dataset.isJumping = "false" 
+        luxray.dataset.isJumping = "false";
         if (Math.random() * 10 > 7) {
-          setTimeout(jump,20);
+          setTimeout(jump, 20);
         }
       }
       luxray.style.bottom = `${height}px`;
       height = dir === "up" ? height + 2 : height - 2;
     }, 15);
-
   }
-
 
   function foodExists() {
     return food.style.display && food.style.display != "none";
@@ -170,10 +172,10 @@ function navHandler() {
   window.onresize = () => {
     if (window.innerWidth > 699) {
       document.querySelector(".sidebar").style.display = "block";
-      luxray.style.left = '50px'
-    }else{
+      luxray.style.left = "50px";
+    } else {
       document.querySelector(".sidebar").style.display = "none";
-      luxray.style.left = '250px'
+      luxray.style.left = "250px";
     }
   };
 
@@ -185,34 +187,34 @@ function navHandler() {
     }
   });
 
-  function scrollTo (div) {
+  function scrollTo(div) {
     let y = div.getBoundingClientRect().top + window.scrollY;
-    window.scroll(0,y);
+    window.scroll(0, y);
   }
 
   let sidebarButtons = document.querySelectorAll(".nav_button");
-  for(let btn of sidebarButtons) {
+  for (let btn of sidebarButtons) {
     let destination = document.querySelector(`.${btn.innerHTML.toLowerCase()}`);
-    if(btn.innerHTML === 'Home') {
-      destination = document.querySelector('body');
+    if (btn.innerHTML === "Home") {
+      destination = document.querySelector("body");
     }
     btn.onclick = () => {
       scrollTo(destination);
-    }
+      if (window.innerWidth < 699) {
+        document.querySelector(".sidebar").style.display = "none";
+      }
+    };
   }
 
   let resume = document.querySelector(".resume");
   resume.onclick = () => {
     var link = document.createElement("a");
-    link.setAttribute('download', "Resume_BrandonKinnick.docx");
+    link.setAttribute("download", "Resume_BrandonKinnick.docx");
     link.href = "Resume_BrandonKinnick.docx";
     document.body.appendChild(link);
     link.click();
     link.remove();
-  }
-
-
-
+  };
 }
 
 function main() {
