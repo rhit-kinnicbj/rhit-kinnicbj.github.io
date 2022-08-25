@@ -180,12 +180,17 @@
   }
 
   .nav_header_container {
-    margin-top: 4rem;
+    height: 20%;
   }
 
-  .nav_button_container {
+  .nav_header_container img {
+    width: 90px;
+    height: 90px;
+  }
 
-    height: 60%;
+
+  .nav_button_container {
+    height: 70%;
     flex-wrap: wrap;
   }
 
