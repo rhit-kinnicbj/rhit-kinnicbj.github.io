@@ -209,7 +209,7 @@ function navHandler() {
   let resume = document.querySelector(".resume");
   resume.onclick = () => {
     var link = document.createElement("a");
-    link.setAttribute("download", "Resume_BrandonKinnick.docx");
+    link.setAttribute("download", "Resume_BrandonKinnick.pdf");
     link.href = "Resume_BrandonKinnick.docx";
     document.body.appendChild(link);
     link.click();
