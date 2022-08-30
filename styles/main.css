@@ -189,6 +189,32 @@ a {
   margin: 15px
 }
 
+.about p {
+ margin-top: auto;
+ margin-bottom: auto;
+}
+
+.about img {
+  border-radius: 50%;
+  border: solid  #030d12 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.imageresume {
+display: flex;
+flex-direction: column;
+  width: 50%;
+}
+
+#about-row {
+  display: flex;
+  flex-direction: row;  
+  margin-left: auto;
+  margin-right: 30px;
+}
+
 
 .experience #imgContainer {
   margin-right: 20px;
@@ -215,11 +241,8 @@ a {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  width: 20%;
   font-size: 1.5rem;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: 30px;
+
   
 }
 
@@ -282,6 +305,10 @@ input {
   color: yellow
 }
 
+.beg {
+  color:coral
+}
+
 .classescontainer {
   width: 100%;
   justify-content: center;
@@ -333,6 +360,16 @@ input {
 
   .experience img {
     width: 80%
+  }
+
+  #about-row {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .imageresume {
+    margin-top: 20px;
+    width: 100%;
   }
 
 
