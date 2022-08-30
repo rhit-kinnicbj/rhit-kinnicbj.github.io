@@ -360,7 +360,26 @@ form input, form textarea {
   color: red;
 }
 
+@media screen and (max-width: 850px) {
+  #about-row {
+    flex-direction: column;
+    margin-right: 0;
+  }
 
+  .imageresume {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+
+
+  .resume {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+}
 
 @media screen and (max-width: 699px) {
   .main {
@@ -395,23 +414,6 @@ form input, form textarea {
     width: 80%
   }
 
-  #about-row {
-    flex-direction: column;
-    margin-right: 0;
-  }
-
-  .imageresume {
-    margin-top: 20px;
-    width: 100%;
-  }
-
-
-
-  .resume {
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
-  }
 
   form {
     width: 90%;
