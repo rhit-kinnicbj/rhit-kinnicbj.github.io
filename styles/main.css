@@ -234,7 +234,7 @@ flex-direction: column;
 }
 
 
-.resume {
+.resume,#submitForm, #closeModal {
   border: solid white 2px; 
   color: white;
   padding: 10px;
@@ -242,27 +242,27 @@ flex-direction: column;
   padding-bottom: 10px;
   text-align: center;
   font-size: 1.5rem;
-
-  
+  background-color: #FFFFFF00;
 }
 
-.resume:hover{
+#submitForm, #closeModal {
+  font-size: 1rem;
+}
+
+.resume:hover, #submitForm:hover, #closeModal:hover{
   cursor: pointer;
   background: linear-gradient(-45deg,#006494,#db17f9);
   animation: gradient_btn 2s ease 1  forwards;
   background-size: 400% 400%;
 }
 
-.contact div {
-  display: flex;
-  flex-direction: column;
-}
+
 
 form {
   width: 100%;
 
 }
-input {
+input, textarea {
   background-color: #030d12;
   color: white; 
    padding: 12px 20px;
@@ -328,6 +328,39 @@ input {
 }
 
 
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  background-color: #030d12;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form input, form textarea {
+  margin-bottom: 10px;
+}
+
+.modal-content {
+ background-color: #030d12; 
+}
+
+.modal h1 {
+  font-size: 4rem;
+  color: white
+}
+
+.modal-content * {
+  text-align: center;
+}
+
+#result {
+  display: none;
+  color: red;
+}
+
+
 
 @media screen and (max-width: 699px) {
   .main {
@@ -379,7 +412,11 @@ input {
     margin-right: auto;
     margin-left: auto;
   }
-  
+
+  form {
+    width: 90%;
+  }
+ 
 
 }
 

@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" type="image/png" href="images/bk_favico2.png" />
 
     <title>Brandon Kinnick</title>
   </head>
@@ -134,6 +135,10 @@
               <h1>Python</h1>
               <span class="beg">Beginner</span>
             </div>
+            <div class="skillbox">
+              <h1>C++</h1>
+              <span class="beg">Beginner</span>
+            </div>
           </div>
         </div>
         <div class="experience section">
@@ -141,10 +146,11 @@
 
           <div class="d-flex flex-row justify-content-between">
             <p>
-              For the past two years, I've been working as a project intern with
-              a small team at Rose-Hulman Ventures working for a client. Here,
-              I've gained experience with all phases of the software development
-              process: design, implementation, customer feedback, and release.
+              Since May 2021, I've been working as a project intern with a small
+              team at Rose-Hulman Ventures on a project for an external client.
+              Here, I've gained experience with all phases of the software
+              development process: design, implementation, customer feedback,
+              and release.
               <br />
               <br />
               My main focuses at Ventures have been
@@ -195,7 +201,7 @@
             <div class="classbox">
               <h1>Operating Systems</h1>
               <p>
-                Learning about essential techniques such as threading, memory
+                Learned about essential techniques such as threading, memory
                 management, file systems, and CPU scheduling.
               </p>
             </div>
@@ -228,13 +234,62 @@
           <h2 class="section-header">Contact</h2>
 
           <p>
-            I'd love to get in touch! I'm current looking for a internship
-            during the summer of 2023. Feel free to contact me at
+            I'd love to get in touch! I'm currently looking for an internship
+            during the summer of 2023. Feel free to fill out the form below or
+            email me at
             <a href="mailto:kinnicbj@rose-hulman.edu"
               >kinnicbj@rose-hulman.edu</a
             >
             if you're interested or have any questions.
           </p>
+          <form method="POST">
+            <input
+              type="hidden"
+              name="access_key"
+              value="a043579c-c4ca-42c4-bc07-53a5d0883232"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="New Submission from Web3Forms"
+            />
+            <input
+              id="nameInput"
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <input type="email" name="email" placeholder="Email" required />
+            <textarea
+              name="message"
+              placeholder="Your message :)"
+              required
+            ></textarea>
+
+            <button id="submitForm" type="submit">Submit Form</button>
+            <span id="result"></span>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal"
+      id="formmodal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h1>:)</h1>
+            <p>Thanks for your message, <span></span>!</p>
+            <p>I'll be sure to get back to you soon.</p>
+          </div>
+
+          <div id="closeModal" data-bs-dismiss="modal">Close</div>
         </div>
       </div>
     </div>
@@ -244,5 +299,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>

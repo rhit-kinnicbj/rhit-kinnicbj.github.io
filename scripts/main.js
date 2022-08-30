@@ -217,9 +217,47 @@ function navHandler() {
   };
 }
 
+function formHandler() {
+  const form = document.querySelector("form");
+  const result = document.querySelector("#result");
+  form.addEventListener("submit", async (e) => {
+    const name = document.querySelector("#nameInput").value;
+    const formData = new FormData(form);
+    e.preventDefault();
+    let object = {};
+    formData.forEach((value, key) => {
+      object[key] = value;
+    });
+    let json = JSON.stringify(object);
+    try {
+      let res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+      let resJson = res.json();
+      if (res.status === 200) {
+        document.querySelector("#formmodal span").innerHTML = name;
+        $("#formmodal").modal("show");
+        form.reset();
+      } else {
+        console.log(resJson.message);
+        throw "err";
+      }
+    } catch (err) {
+      result.style.display = "block";
+      result.innerHTML = "Something went wrong!";
+    }
+  });
+}
+
 function main() {
   luxrayHandler();
   navHandler();
+  formHandler();
 }
 
 main();
